@@ -1,6 +1,6 @@
 'use client'
 
-import { createClient } from '@/lib/supabase'
+import { createClient } from '@/lib/supabase-client'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
@@ -24,7 +24,7 @@ export default function RegisterPage() {
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.SubmitEvent & { currentTarget: HTMLFormElement }) {
     e.preventDefault()
     setError('')
     setLoading(true)
